@@ -76,36 +76,50 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-section-projects text-text-dark">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">My Projects</h2>
-          <div className="w-24 h-1 bg-yellow-300 mx-auto mb-8"></div>
+    <section id="projects" className="py-24 bg-section-projects text-text-dark">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-24">
+          <h2 className="text-4xl font-bold mb-4">My Projects</h2>
+          <div className="w-24 h-1 bg-yellow-300 mx-auto"></div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="flex flex-col gap-32">
           {projects.map((project) => (
             <div
               key={project.id}
-              className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition"
+              className="bg-white rounded-lg shadow-lg p-10 flex flex-col items-center text-center mx-auto max-w-2xl transition duration-300 transform hover:scale-105"
+              style={{
+                transition:
+                  "background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = "#87CEFA";
+                e.currentTarget.style.boxShadow =
+                  "0 8px 20px rgba(135, 206, 250, 0.6)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "#ffffff";
+                e.currentTarget.style.boxShadow =
+                  "0 4px 6px rgba(0, 0, 0, 0.1)";
+              }}
             >
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+              <h3 className="text-2xl font-semibold text-gray-900 mb-4">
                 {project.title}
               </h3>
-              <p className="text-gray-600 mb-4 text-sm">
+              <p className="text-gray-600 mb-6 text-base">
                 {project.description}
               </p>
-              <div className="flex flex-wrap gap-2 mb-2">
+              <div className="flex flex-wrap justify-center gap-3 mb-4">
                 {project.techStack.map((tech, index) => (
                   <span
                     key={index}
-                    className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full"
+                    className="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full"
                   >
                     {tech}
                   </span>
                 ))}
               </div>
-              <span className="text-indigo-600 text-xs font-medium">
+              <span className="text-indigo-600 text-sm font-medium">
                 {project.category}
               </span>
             </div>

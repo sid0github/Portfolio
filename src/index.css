@@ -28,8 +28,11 @@ html {
 
 /* Custom styles */
 body {
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Press Start 2P', 'Inter', sans-serif;
+  font-size: 12px;
 }
+
+
 
 /* Animation classes */
 .animate-fade-in {
